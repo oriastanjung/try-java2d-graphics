@@ -15,6 +15,7 @@ public class Canvas extends JComponent{
     private Mountain1 mountain1;
     private Mountain2 mountain2;
     private Mountain3 mountain3;
+    private Trees trees;
 
     public Canvas(int width, int height){
         this.width = width;
@@ -29,7 +30,7 @@ public class Canvas extends JComponent{
         mountain1 = new Mountain1();
         mountain2 = new Mountain2();
         mountain3 = new Mountain3();
-
+        trees = new Trees();
     }
 
     @Override
@@ -45,10 +46,12 @@ public class Canvas extends JComponent{
         
         
         // langit
+        GradientPaint gradient = new GradientPaint(0, 0, Color.BLACK , 0, 180, new Color(53, 134, 162));
+        g2d.setPaint(gradient);
         Rectangle2D persegiPanjang = new Rectangle2D.Double(0,0,width,height);
-        g2d.setColor(new Color(53, 134, 162));
+        // g2d.setColor(new Color(53, 134, 162));
         g2d.fill(persegiPanjang);
-
+        g2d.setPaint(Color.BLACK);
         //bulan
         moon.drawMoon(g2d);
 
@@ -70,8 +73,12 @@ public class Canvas extends JComponent{
         
         // mountain 3
         mountain3.drawMountain3(g2d);
-        
-       
+        // trees.drawTrees(g2d);
+        // Path2D tree = new Path2D.Double();
+        // tree.moveTo(0, 400);
+        // tree.lineTo(210, 420);
+        // g2d.setColor(Color.BLACK);
+        // g2d.draw(tree);
     }   
 
 }
